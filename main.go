@@ -14,11 +14,6 @@ func print_usage(cmd string) {
 func main() {
 	flag.Parse()
 
-	if flag.NArg() != 1 {
-		print_usage(os.Args[0])
-		os.Exit(1)
-	}
-
 	remotes, err := DetectRemote(flag.Arg(0))
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error: %s\n", err.Error())

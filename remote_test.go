@@ -119,15 +119,6 @@ func TestMangleURL(t *testing.T) {
 		t.Error("unexpected url:", u)
 	}
 
-	// different host
-	u, err = MangleURL("git@example.com:username/repo.git")
-	if err == nil {
-		t.Error("error should be set:", err)
-	}
-	if err.Error() != "invalid github host: example.com" {
-		t.Error("unexpected error:", err)
-	}
-
 	// unsupported host
 	u, err = MangleURL("git@example.com:repo.git")
 	if err == nil {

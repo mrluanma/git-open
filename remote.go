@@ -55,7 +55,7 @@ func DetectRemote(dir string) ([]*Remote, error) {
 	return remotes, nil
 }
 
-// Convert git remote url to github URL
+// Convert git remote url to github/bitbucket URL
 //
 // Supported types:
 //   - git@github.com:username/repo.git
@@ -82,8 +82,5 @@ func MangleURL(url string) (string, error) {
 }
 
 func CreateURL(host, user, repo string) (string, error) {
-	if host != "github.com" {
-		return "", fmt.Errorf("invalid github host: %s", host)
-	}
 	return fmt.Sprintf("https://%s/%s/%s", host, user, repo), nil
 }
